@@ -9,7 +9,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface ApiPhimService {
     Gson gson = new GsonBuilder()
@@ -23,4 +26,6 @@ public interface ApiPhimService {
 
     @GET("allphim")
     Call<List<Phim>> getAllPhim();
+    @DELETE("deletePhim/{IDPhim}")
+    Call<Void> deletePhim(@Path("IDPhim") int IDPhim);
 }
