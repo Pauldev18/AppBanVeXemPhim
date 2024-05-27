@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerViewPhim = findViewById(R.id.recyclerViewPhim);
+        recyclerViewPhim = findViewById(R.id.recycler_view);
         recyclerViewPhim.setLayoutManager(new LinearLayoutManager(this));
 
         fetchPhimData();

@@ -1,8 +1,12 @@
 package com.example.appbanvexemphim.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,17 +25,39 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
         Phim detailPhim = (Phim) bundle.get("objPhim");
-        ImageView imageView = findViewById(R.id.txt_anhPhim);
-        TextView textView = findViewById(R.id.txt_tenPhim);
-        textView.setText(detailPhim.getTenPhim());
+        ImageView imageView = findViewById(R.id.img_header);
+        TextView tenPhim = findViewById(R.id.txt_title);
+        TextView moTa = findViewById(R.id.txt_description);
+        TextView theLoai = findViewById(R.id.txt_classification);
+        TextView thoiLuong = findViewById(R.id.txt_format);
+        TextView daoDien = findViewById(R.id.txt_director);
+        TextView dienVien = findViewById(R.id.txt_cast);
+        TextView khoiChieu = findViewById(R.id.txt_release_date);
+        TextView ngonNgu = findViewById(R.id.txt_language);
+        Button btnDatVe = findViewById(R.id.btn_buy_ticket);
 
+        tenPhim.setText(detailPhim.getTenPhim());
         Glide.with(this)
-                .load(detailPhim.getAnhPhim()) // Đường dẫn ảnh từ đối tượng Phim
-                .placeholder(R.drawable.ic_launcher_background) // Ảnh placeholder nếu không tải được ảnh
-                .error(R.drawable.ic_launcher_background) // Ảnh hiển thị khi có lỗi
+                .load(detailPhim.getAnhPhim())
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
                 .into(imageView);
+        moTa.setText("Mô tả: " + detailPhim.getNoiDung());
+        theLoai.setText("Thể loại: " + detailPhim.getTheLoai());
+        thoiLuong.setText("Thời lượng: " + detailPhim.getThoiLuong());
+        daoDien.setText("Đạo diễn: " + detailPhim.getDaoDien());
+        dienVien.setText("Diễn viên: " + detailPhim.getDienVien());
+        khoiChieu.setText("Khởi chiếu: " + detailPhim.getKhoiChieu());
+        ngonNgu.setText("Ngôn ngữ: " + detailPhim.getNgonNgu());
 
-
+        btnDatVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailActivity.this, BookingActivity.class);
+                intent.putExtra("MOVIE_ID", detailPhim.getId());
+                startActivity(intent);
+            }
+        });
 
     }
 }

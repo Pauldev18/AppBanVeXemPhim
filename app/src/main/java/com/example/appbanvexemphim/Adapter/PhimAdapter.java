@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +53,7 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
         Phim phim = listPhim.get(position);
         holder.txtTenPhim.setText(phim.getTenPhim());
         Glide.with(context).load(phim.getAnhPhim()).into(holder.imgPhim);
-
+        holder.theLoai.setText(phim.getTheLoai());
         // Khai báo sự kiện click
         holder.layOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,19 +61,7 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
                 onClickGotoDetail(phim);
             }
         });
-        holder.btnedit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deletePhim(phim);
-            }
-        });
 
-        holder.btnEditReal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickGotoEdit(phim);
-            }
-        });
     }
 
     private void deletePhim(Phim phim) {
@@ -143,17 +132,16 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
     public class PhimViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhim;
         TextView txtTenPhim;
-        private ConstraintLayout layOut;
-        Button btnedit;
-        Button btnEditReal;
+        private LinearLayout layOut;
+        TextView theLoai;
+
 
         public PhimViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPhim = itemView.findViewById(R.id.imgPhim);
-            txtTenPhim = itemView.findViewById(R.id.txtTenPhim);
-            layOut = itemView.findViewById(R.id.itemPhimID);
-            btnedit = itemView.findViewById(R.id.btnEdit);
-            btnEditReal = itemView.findViewById(R.id.btnEditReal);
+            imgPhim = itemView.findViewById(R.id.movie_poster);
+            txtTenPhim = itemView.findViewById(R.id.tenphim);
+            layOut = itemView.findViewById(R.id.item_phim);
+            theLoai = itemView.findViewById(R.id.theloai);
         }
 
     }
