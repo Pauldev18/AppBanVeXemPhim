@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appbanvexemphim.Activity.BookingActivity;
 import com.example.appbanvexemphim.Model.DiaDiemAndGioChieu;
 import com.example.appbanvexemphim.Model.GioChieu;
 import com.example.appbanvexemphim.R;
@@ -59,7 +60,7 @@ public class ShowtimesAdapter extends RecyclerView.Adapter<ShowtimesAdapter.Show
             btnShowtime.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "idDiaDiem: " + idDiaDiem + ", idGioChieu: " + idGioChieu, Toast.LENGTH_SHORT).show();
+                    ((BookingActivity) context).fetchDataChoNgoi(idDiaDiem, idGioChieu);
                 }
             });
 

@@ -1,5 +1,6 @@
 package com.example.appbanvexemphim.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import com.example.appbanvexemphim.Adapter.PhimAdapter;
 import com.example.appbanvexemphim.Adapter.RapAdapter;
 import com.example.appbanvexemphim.Adapter.ShowtimesAdapter;
 import com.example.appbanvexemphim.Adapter.TinhAdapter;
+import com.example.appbanvexemphim.Model.ChoNgoi;
 import com.example.appbanvexemphim.Model.DiaDiemAndGioChieu;
 import com.example.appbanvexemphim.Model.NgayChieu;
 import com.example.appbanvexemphim.Model.Phim;
@@ -22,6 +24,8 @@ import com.example.appbanvexemphim.Model.Rap;
 import com.example.appbanvexemphim.Model.Tinh;
 import com.example.appbanvexemphim.R;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,6 +44,7 @@ public class BookingActivity extends AppCompatActivity {
     private int movieID;
     private int NgayChieuID;
     private int TinhID;
+    private int RapID;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,6 +135,7 @@ public class BookingActivity extends AppCompatActivity {
                     List<DiaDiemAndGioChieu> diaDiemAndGioChieus = response.body();
                     showtimesAdapter = new ShowtimesAdapter(BookingActivity.this, diaDiemAndGioChieus);
                     rv_giochieu.setAdapter(showtimesAdapter);
+                    RapID = idRap;
                 } else {
                     Toast.makeText(BookingActivity.this, "Failed to get data", Toast.LENGTH_SHORT).show();
                 }
@@ -137,6 +143,34 @@ public class BookingActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<DiaDiemAndGioChieu>> call, Throwable t) {
+                Toast.makeText(BookingActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("MainActivity", "onFailure: ", t);
+            }
+        });
+    }
+
+    public void fetchDataChoNgoi(int idDiaDiem, int idGioChieu) {
+        ApiPhimService.phimService.getChoNgoi(NgayChieuID, movieID, TinhID, RapID, idDiaDiem, idGioChieu).enqueue(new Callback<List<ChoNgoi>>() {
+            @Override
+            public void onResponse(Call<List<ChoNgoi>> call, Response<List<ChoNgoi>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<ChoNgoi> listChoNgoi = response.body();
+                    Intent intent = new Intent(BookingActivity.this, ChonVeActivity.class);
+                    intent.putParcelableArrayListExtra("listChoNgoi", new ArrayList<>(listChoNgoi));
+                    intent.putExtra("movieID", movieID);
+                    intent.putExtra("NgayChieuID", NgayChieuID);
+                    intent.putExtra("TinhID", TinhID);
+                    intent.putExtra("RapID", RapID);
+                    intent.putExtra("DiaDiemID", idDiaDiem);
+                    intent.putExtra("GioChieuID", idGioChieu);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(BookingActivity.this, "Failed to get data", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ChoNgoi>> call, Throwable t) {
                 Toast.makeText(BookingActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("MainActivity", "onFailure: ", t);
             }

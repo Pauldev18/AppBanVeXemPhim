@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/screen_text"
@@ -11,23 +10,31 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="MÀN HÌNH"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:layout_marginTop="16dp"/>
 
-    <GridLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/seat_grid"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@id/screen_text"
+        android:layout_marginTop="149dp"
+        android:columnCount="10" />
+
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/screen_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:columnCount="10"
-        android:rowCount="10">
-
-        <!-- Các ghế sẽ được thêm vào đây bằng mã Java/Kotlin -->
-
-    </GridLayout>
+        android:layout_above="@+id/book_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="235dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="28dp"
+        android:textSize="24sp"
+        android:text="0" />
 
     <Button
         android:id="@+id/book_button"
@@ -37,5 +44,17 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/book_button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="28dp"
+        android:text="Tổng tiền: "
+        android:textSize="24sp" />
+
 
 </RelativeLayout>
