@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Tên Phim -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tên Phim"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etTenPhim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên phim" />
+
+        <!-- Ảnh Phim -->
+        <!-- Ảnh Phim -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ảnh Phim"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- ImageView để hiển thị ảnh mẫu -->
+            <ImageView
+                android:id="@+id/imageViewPreview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_launcher_background" /> <!-- Đặt ảnh mặc định ở đây -->
+
+            <!-- Button để chọn ảnh -->
+            <Button
+                android:id="@+id/btnChonAnh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn ảnh" />
+        </LinearLayout>
+
+
+        <!-- Thể Loại -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Thể Loại"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etTheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập thể loại" />
+
+        <!-- Thời Lượng -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Thời Lượng"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etThoiLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập thời lượng" />
+
+        <!-- Khởi Chiếu -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Khởi Chiếu"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etKhoiChieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập ngày khởi chiếu" />
+
+        <!-- Đạo Diễn -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Đạo Diễn"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etDaoDien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên đạo diễn" />
+
+        <!-- Diễn Viên -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Diễn Viên"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etDienVien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên diễn viên" />
+
+        <!-- Ngôn Ngữ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ngôn Ngữ"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etNgonNgu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập ngôn ngữ" />
+
+        <!-- Đánh Giá -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Đánh Giá"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etDanhGia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập đánh giá" />
+
+        <!-- Nội Dung -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Nội Dung"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etNoiDung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="Nhập nội dung"
+            android:inputType="textMultiLine"
+            android:minLines="3" />
+
+        <!-- Nút Thêm -->
+        <Button
+            android:id="@+id/btnThemPhim"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Thêm Phim" />
+    </LinearLayout>
+</ScrollView>

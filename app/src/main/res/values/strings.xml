@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">AppBanVeXemPhim</string>
     <string name="movie_image">Movie Image</string>
+    <!-- res/values/strings.xml -->
+
+        <string name="navigation_drawer_open">Open navigation drawer</string>
+        <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
 </resources>

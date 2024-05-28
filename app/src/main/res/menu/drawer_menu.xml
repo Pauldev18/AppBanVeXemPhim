@@ -1,0 +1,11 @@
+<!-- res/menu/drawer_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_manage_screenings"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Quản lý Ngày Chiếu" />
+    <item
+        android:id="@+id/nav_manage_movies"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Quản lý Phim" />
+</menu>

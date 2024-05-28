@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Ảnh Phim -->
+    <ImageView
+        android:id="@+id/imgMovie"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Movie Image"
+        android:scaleType="centerCrop" />
+
+    <!-- Thông tin phim -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Tên Phim -->
+        <TextView
+            android:id="@+id/tvMovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Phim"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingEnd="8dp" />
+
+        <!-- Thể loại Phim -->
+        <TextView
+            android:id="@+id/tvMovieGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thể loại"
+            android:textSize="16sp"
+            android:paddingEnd="8dp"
+            android:textColor="#757575" />
+
+    </LinearLayout>
+
+    <!-- Nút Xóa -->
+    <Button
+        android:id="@+id/btnDeleteMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xóa"
+        android:textColor="#FF0000"
+        android:background="?attr/selectableItemBackground" />
+
+</LinearLayout>

@@ -16,6 +16,8 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -23,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
@@ -33,7 +36,7 @@ public interface ApiPhimService {
             .setLenient()
             .create();
     ApiPhimService phimService = new Retrofit.Builder()
-            .baseUrl("http://192.168.80.1:8080/")
+            .baseUrl("http://172.16.1.103:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiPhimService.class);
@@ -99,4 +102,21 @@ public interface ApiPhimService {
 
     @DELETE("deletePhim/{IDPhim}")
     Call<Void> deletePhim(@Path("IDPhim") int IDPhim);
+
+    @Multipart
+    @POST("upfilm")
+    Call<Object> upFilm(
+            @Query("tenPhim") String tenPhim,
+            @Part MultipartBody.Part anhPhimUrl, // Change the parameter type here
+            @Query("theLoai") String theLoai,
+            @Query("thoiLuong") String thoiLuong,
+            @Query("khoiChieu") String khoiChieu,
+            @Query("daoDien") String daoDien,
+            @Query("dienVien") String dienVien,
+            @Query("ngonNgu") String ngonNgu,
+            @Query("danhGia") String danhGia,
+            @Query("noiDung") String noiDung
+    );
+
+
 }

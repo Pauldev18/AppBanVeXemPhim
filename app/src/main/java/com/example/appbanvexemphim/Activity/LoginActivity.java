@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }else{
-                                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminDashboardActivity.class);
                                 startActivity(intent);
                             }
                         }else{
