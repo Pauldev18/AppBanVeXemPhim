@@ -8,4 +8,20 @@
         android:id="@+id/nav_manage_movies"
         android:icon="@drawable/ic_launcher_background"
         android:title="Quản lý Phim" />
+    <item
+        android:id="@+id/nav_diadiem"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Quản lý địa điểm" />
+    <item
+        android:id="@+id/nav_tinh"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Quản lý tỉnh" />
+    <item
+        android:id="@+id/nav_giochieu"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Quản lý giờ chiếu" />
+    <item
+        android:id="@+id/nav_loairap"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Quản lý loại rạp" />
 </menu>

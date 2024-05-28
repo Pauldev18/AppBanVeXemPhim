@@ -1,5 +1,10 @@
 package com.example.appbanvexemphim.API;
 
+import com.example.appbanvexemphim.Model.AdminDiaDiem;
+import com.example.appbanvexemphim.Model.AdminGioChieu;
+import com.example.appbanvexemphim.Model.AdminLoaiRap;
+import com.example.appbanvexemphim.Model.AdminNgayChieu;
+import com.example.appbanvexemphim.Model.AdminTinh;
 import com.example.appbanvexemphim.Model.ChoNgoi;
 import com.example.appbanvexemphim.Model.DatCho;
 import com.example.appbanvexemphim.Model.DiaDiemAndGioChieu;
@@ -36,7 +41,7 @@ public interface ApiPhimService {
             .setLenient()
             .create();
     ApiPhimService phimService = new Retrofit.Builder()
-            .baseUrl("http://172.16.1.103:8080/")
+            .baseUrl("http://192.168.80.1:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiPhimService.class);
@@ -117,6 +122,17 @@ public interface ApiPhimService {
             @Query("danhGia") String danhGia,
             @Query("noiDung") String noiDung
     );
+
+    @GET("getAllNgayChieu")
+    Call<List<AdminNgayChieu>> getAllNgayChieu();
+    @GET("getAllDiaDiem")
+    Call<List<AdminDiaDiem>> getAllDiaDiem();
+    @GET("getAllTinh")
+    Call<List<AdminTinh>> getAllTinh();
+    @GET("getAllGioChieu")
+    Call<List<AdminGioChieu>> getAllGioChieu();
+    @GET("getAllLoaiRap")
+    Call<List<AdminLoaiRap>> getAllLoaiRap();
 
 
 }

@@ -50,11 +50,27 @@ public class AdminDashboardActivity extends AppCompatActivity implements Navigat
 
         if (id == R.id.nav_manage_screenings) {
             // Handle navigation to Manage Screenings
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, AdminNgayChieuActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_manage_movies) {
             // Handle navigation to Manage Movies
             Intent intent = new Intent(this, ManagentPhimActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_diadiem) {
+            // Handle navigation to Manage Movies
+            Intent intent = new Intent(this, AdminDiaDiemActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_tinh) {
+            // Handle navigation to Manage Movies
+            Intent intent = new Intent(this, AdminTinhActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_giochieu) {
+            // Handle navigation to Manage Movies
+            Intent intent = new Intent(this, AdminGioChieuActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_loairap) {
+            // Handle navigation to Manage Movies
+            Intent intent = new Intent(this, AdminLoaiRapActivity.class);
             startActivity(intent);
         }
 
