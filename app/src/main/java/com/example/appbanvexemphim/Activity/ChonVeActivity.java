@@ -1,5 +1,6 @@
 package com.example.appbanvexemphim.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +13,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appbanvexemphim.API.ApiPhimService;
 import com.example.appbanvexemphim.Adapter.ChoNgoiAdapter;
+import com.example.appbanvexemphim.Adapter.NgayChieuAdapter;
 import com.example.appbanvexemphim.Model.ChoNgoi;
+import com.example.appbanvexemphim.Model.DatCho;
+import com.example.appbanvexemphim.Model.NgayChieu;
 import com.example.appbanvexemphim.R;
 import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ChonVeActivity extends AppCompatActivity {
     private static final String TAG = "ChonVeActivity";
@@ -72,6 +81,28 @@ public class ChonVeActivity extends AppCompatActivity {
                 logMessage += "\nDia Diem ID: " + DiaDiemID;
                 logMessage += "\nGio Chieu ID: " + GioChieuID;
                 Log.d(TAG, logMessage);  // Log message
+                ApiPhimService.phimService.getIDDatCho(NgayChieuID, movieID, TinhID, RapID,
+                        DiaDiemID, GioChieuID, ChooseSeat.getInstance().getSelectedSeat()).enqueue(new Callback<List<DatCho>>() {
+                    @Override
+                    public void onResponse(Call<List<DatCho>> call, Response<List<DatCho>> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            List<DatCho> datcho = response.body();
+                            Intent intent = new Intent(ChonVeActivity.this, ConfirmActivity.class);
+                            intent.putExtra("IDDatCho", datcho.get(0).getIddatCho());
+                            // Khởi động ConfirmActivity
+                            startActivity(intent);
+
+                        } else {
+                            Toast.makeText(ChonVeActivity.this, "Đặt vé thất bại, vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<DatCho>> call, Throwable t) {
+                        Toast.makeText(ChonVeActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("MainActivity", "onFailure: ", t);
+                    }
+                });
 
             }
         });

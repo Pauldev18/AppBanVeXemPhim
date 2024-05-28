@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f5f5f5">
+
+    <!-- Icon hoặc hình ảnh thành công -->
+    <ImageView
+        android:id="@+id/success_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginBottom="24dp" />
+
+    <!-- Tiêu đề thông báo -->
+    <TextView
+        android:id="@+id/success_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#4CAF50"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Thông tin giao dịch -->
+    <TextView
+        android:id="@+id/order_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#333" />
+
+    <TextView
+        android:id="@+id/order_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã đơn hàng: 68591539"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#555" />
+
+    <TextView
+        android:id="@+id/amount_paid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số tiền thanh toán: 11.111 VND"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#555" />
+
+    <TextView
+        android:id="@+id/bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngân hàng: NCB"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#555" />
+
+    <!-- Nút quay lại trang chủ hoặc tiếp tục mua sắm -->
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColor="#fff"
+        android:background="#4CAF50"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

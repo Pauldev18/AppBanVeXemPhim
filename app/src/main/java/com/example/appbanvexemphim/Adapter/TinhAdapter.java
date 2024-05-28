@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appbanvexemphim.Activity.BookingActivity;
 import com.example.appbanvexemphim.Model.Tinh;
 import com.example.appbanvexemphim.R;
+import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class TinhAdapter extends RecyclerView.Adapter<TinhAdapter.TinhViewHolder
             public void onClick(View v) {
                 int t = tinh.getId(); // Lấy ngày chiếu từ item được click
                 ((BookingActivity) context).fetchDataRap(t);
+                ChooseSeat.getInstance().setTenTinh(tinh.getDiaDiem());
             }
         });
     }

@@ -16,6 +16,7 @@ import com.example.appbanvexemphim.Activity.BookingActivity;
 import com.example.appbanvexemphim.Model.DiaDiemAndGioChieu;
 import com.example.appbanvexemphim.Model.GioChieu;
 import com.example.appbanvexemphim.R;
+import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
 import java.util.List;
 
@@ -61,6 +62,8 @@ public class ShowtimesAdapter extends RecyclerView.Adapter<ShowtimesAdapter.Show
                 @Override
                 public void onClick(View v) {
                     ((BookingActivity) context).fetchDataChoNgoi(idDiaDiem, idGioChieu);
+                    ChooseSeat.getInstance().setGioChieu(showtime.getListGioChieu().get(0).getTime());
+                    ChooseSeat.getInstance().setPhongChieu(showtime.getDiaDiem());
                 }
             });
 

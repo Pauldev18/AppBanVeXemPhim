@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Thông tin vé -->
+    <TextView
+        android:id="@+id/textViewMovieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên phim: Avengers: Endgame"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngày mua: 25/05/2024"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thời gian chiếu: 19:30"
+        android:layout_marginBottom="4dp"/>
+    <TextView
+        android:id="@+id/txtDiaDiem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Địa điểm"
+        android:layout_marginBottom="4dp"/>
+    <TextView
+        android:id="@+id/txtRap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rạp"
+        android:layout_marginBottom="4dp"/>
+    <TextView
+        android:id="@+id/txtGhe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ghế"
+        android:layout_marginBottom="4dp"/>
+    <TextView
+        android:id="@+id/textViewQRCodeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Hãy đưa mã này cho nhân viên và nhận vé"
+        android:textSize="16sp"/>
+    <!-- Mã QR -->
+    <ImageView
+        android:id="@+id/imageViewQRCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_launcher_foreground"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        android:layout_marginTop="15dp"
+        android:layout_marginVertical="8dp"/>
+
+</LinearLayout>

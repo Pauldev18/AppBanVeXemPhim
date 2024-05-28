@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appbanvexemphim.Activity.BookingActivity;
 import com.example.appbanvexemphim.Model.Rap;
 import com.example.appbanvexemphim.R;
+import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class RapAdapter extends RecyclerView.Adapter<RapAdapter.RapViewHolder>{
             public void onClick(View v) {
                 int t = rap.getId(); // Lấy ngày chiếu từ item được click
                 ((BookingActivity) context).fetchDataDiaDiemAndChoNgoi(t);
+                ChooseSeat.getInstance().setTenRap(rap.getTenRap());
             }
         });
     }

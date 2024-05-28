@@ -15,8 +15,13 @@ import com.example.appbanvexemphim.Activity.BookingActivity;
 import com.example.appbanvexemphim.Model.NgayChieu;
 import com.example.appbanvexemphim.Model.Phim;
 import com.example.appbanvexemphim.R;
+import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NgayChieuAdapter extends RecyclerView.Adapter<NgayChieuAdapter.NgayChieuViewHolder>{
     private List<NgayChieu> listNgayChieus;
@@ -33,19 +38,34 @@ public class NgayChieuAdapter extends RecyclerView.Adapter<NgayChieuAdapter.Ngay
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_date, parent, false);
         return new NgayChieuAdapter.NgayChieuViewHolder(view);
     }
-
+    String formattedDate;
     @Override
     public void onBindViewHolder(@NonNull NgayChieuViewHolder holder, int position) {
         NgayChieu nc = listNgayChieus.get(position);
-        holder.tvDate.setText(nc.getThoiGian());
+
+        // Assuming the original date format is yyyy-MM-dd
+        String originalDate = nc.getThoiGian();
+        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        try {
+            Date date = originalFormat.parse(originalDate);
+            formattedDate = targetFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            formattedDate = originalDate; // Fallback to original if parsing fails
+        }
+
+        holder.tvDate.setText(formattedDate);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int ngay = nc.getId(); // Lấy ngày chiếu từ item được click
                 ((BookingActivity) context).fetchDataTinh(ngay);
+                ChooseSeat.getInstance().setNgayChieu(formattedDate);
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

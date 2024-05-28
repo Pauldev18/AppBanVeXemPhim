@@ -21,10 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.appbanvexemphim.API.ApiPhimService;
 import com.example.appbanvexemphim.Activity.DetailActivity;
+import com.example.appbanvexemphim.Activity.MainActivity;
 import com.example.appbanvexemphim.Activity.PhimEditActivity;
 import com.example.appbanvexemphim.Model.Phim;
 import com.example.appbanvexemphim.R;
+import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,10 +36,12 @@ import retrofit2.Response;
 
 public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder> {
     private List<Phim> listPhim;
+    private List<Phim> listPhimFull; // Danh sách phim gốc
     private Context context;
 
     public PhimAdapter(List<Phim> listPhim, Context context) {
         this.listPhim = listPhim;
+        this.listPhimFull = new ArrayList<>(listPhim); // Sao chép danh sách phim gốc
         this.context = context;
     }
 
@@ -46,6 +51,35 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_phim, parent, false);
         return new PhimViewHolder(view);
     }
+
+    public List<Phim> getListPhim() {
+        return listPhim;
+    }
+
+    public void setListPhim(List<Phim> listPhim) {
+        this.listPhim = listPhim;
+    }
+
+    public void filterList(String text) {
+        List<Phim> filteredList = new ArrayList<>();
+
+        // Lặp qua danh sách phim ban đầu và tìm kiếm theo tên phim, thể loại, đạo diễn hoặc diễn viên
+        for (Phim phim : listPhimFull) {
+            if (phim.getTenPhim().toLowerCase().contains(text.toLowerCase()) ||
+                    phim.getTheLoai().toLowerCase().contains(text.toLowerCase()) ||
+                    phim.getDaoDien().toLowerCase().contains(text.toLowerCase()) ||
+                    phim.getDienVien().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(phim);
+            }
+        }
+
+        // Cập nhật danh sách phim đã lọc và thông báo adapter về sự thay đổi
+        listPhim = filteredList;
+        notifyDataSetChanged();
+    }
+
+
+
 
 
     @Override
@@ -59,6 +93,7 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
             @Override
             public void onClick(View v) {
                 onClickGotoDetail(phim);
+                ChooseSeat.getInstance().setTenPhim(phim.getTenPhim());
             }
         });
 

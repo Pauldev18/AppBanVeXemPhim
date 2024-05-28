@@ -82,6 +82,8 @@ public class ChoNgoiAdapter extends RecyclerView.Adapter<ChoNgoiAdapter.ChoNgoiV
                 selectedSeatId = choNgoi.getId();  // Update selected seat ID
                 ChooseSeat.getInstance().setSelectedSeat(selectedSeatId);
                 ((ChonVeActivity) context).setTongtien(choNgoi.getPrice());
+                ChooseSeat.getInstance().setTenGhe(choNgoi.getChoNgoi());
+                ChooseSeat.getInstance().setPrice(choNgoi.getPrice());
             }
         });
     }
