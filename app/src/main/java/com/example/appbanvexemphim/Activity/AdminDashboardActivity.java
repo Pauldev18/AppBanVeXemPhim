@@ -72,6 +72,10 @@ public class AdminDashboardActivity extends AppCompatActivity implements Navigat
             // Handle navigation to Manage Movies
             Intent intent = new Intent(this, AdminLoaiRapActivity.class);
             startActivity(intent);
+        }else if (id == R.id.nav_addsuatchieu) {
+            // Handle navigation to Manage Movies
+            Intent intent = new Intent(this, AdminThemSuatChieuActivity.class);
+            startActivity(intent);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

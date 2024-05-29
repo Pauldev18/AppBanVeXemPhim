@@ -19,4 +19,14 @@ public class AdminNgayChieu {
     public void setNgayChieu(String ngayChieu) {
         this.ngayChieu = ngayChieu;
     }
+
+    public AdminNgayChieu(int id, String ngayChieu) {
+        this.id = id;
+        this.ngayChieu = ngayChieu;
+    }
+
+    @Override
+    public String toString() {
+        return ngayChieu;
+    }
 }

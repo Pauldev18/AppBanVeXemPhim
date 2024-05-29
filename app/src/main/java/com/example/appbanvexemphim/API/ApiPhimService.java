@@ -11,6 +11,7 @@ import com.example.appbanvexemphim.Model.DiaDiemAndGioChieu;
 import com.example.appbanvexemphim.Model.LichSuDatVe;
 import com.example.appbanvexemphim.Model.LoginReponse;
 import com.example.appbanvexemphim.Model.LoginRequest;
+import com.example.appbanvexemphim.Model.NewSuatChieu;
 import com.example.appbanvexemphim.Model.NgayChieu;
 import com.example.appbanvexemphim.Model.Phim;
 import com.example.appbanvexemphim.Model.Rap;
@@ -133,6 +134,9 @@ public interface ApiPhimService {
     Call<List<AdminGioChieu>> getAllGioChieu();
     @GET("getAllLoaiRap")
     Call<List<AdminLoaiRap>> getAllLoaiRap();
+
+    @POST("/newListSuatChieu")
+    Call<Void> createSuatChieu(@Body NewSuatChieu newSuatChieu);
 
 
 }

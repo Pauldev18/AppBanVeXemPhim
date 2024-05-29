@@ -44,6 +44,7 @@
         <activity android:name=".Activity.AdminTinhActivity" />
         <activity android:name=".Activity.AdminGioChieuActivity" />
         <activity android:name=".Activity.AdminLoaiRapActivity" />
+        <activity android:name=".Activity.AdminThemSuatChieuActivity" />
 
     </application>
 

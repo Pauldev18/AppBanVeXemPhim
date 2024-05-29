@@ -19,4 +19,14 @@ public class AdminTinh {
     public void setTenTinh(String tenTinh) {
         this.tenTinh = tenTinh;
     }
+
+    public AdminTinh(int id, String tenTinh) {
+        this.id = id;
+        this.tenTinh = tenTinh;
+    }
+
+    @Override
+    public String toString() {
+        return tenTinh;
+    }
 }

@@ -19,6 +19,11 @@ public class Phim implements Serializable {
     public Phim() {
     }
 
+    public Phim(String tenPhim, int id) {
+        this.tenPhim = tenPhim;
+        this.id = id;
+    }
+
     public Phim(String tenPhim, String anhPhim, String theLoai, String thoiLuong, String khoiChieu, String daoDien, String dienVien, String ngonNgu, String danhGia, String noiDung, int tinhTrang, int id) {
         this.tenPhim = tenPhim;
         this.anhPhim = anhPhim;
@@ -128,5 +133,10 @@ public class Phim implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return tenPhim;
     }
 }

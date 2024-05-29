@@ -24,4 +24,8 @@
         android:id="@+id/nav_loairap"
         android:icon="@drawable/ic_launcher_background"
         android:title="Quản lý loại rạp" />
+    <item
+        android:id="@+id/nav_addsuatchieu"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Thêm mới suất chiếu" />
 </menu>

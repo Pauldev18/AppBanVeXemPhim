@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- TextView and Spinner for Movies -->
+    <TextView
+        android:id="@+id/tvMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn phim"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/design_default_color_primary"/>
+
+    <Spinner
+        android:id="@+id/spinner_movies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMovies"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView and Spinner for Ngay Chieu -->
+    <TextView
+        android:id="@+id/tvNgayChieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn ngày chiếu"
+        android:layout_below="@id/spinner_movies"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/design_default_color_primary"/>
+
+    <Spinner
+        android:id="@+id/spNgayChieu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNgayChieu"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView and Spinner for Tinh -->
+    <TextView
+        android:id="@+id/tvTinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn tỉnh"
+        android:layout_below="@id/spNgayChieu"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/design_default_color_primary"/>
+
+    <Spinner
+        android:id="@+id/spTinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTinh"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView and Spinner for Dia Diem -->
+    <TextView
+        android:id="@+id/tvDiaDiem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn địa điểm"
+        android:layout_below="@id/spTinh"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/design_default_color_primary"/>
+
+    <Spinner
+        android:id="@+id/spDiaDiem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDiaDiem"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView and Spinner for Gio Chieu -->
+    <TextView
+        android:id="@+id/tvGioChieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn giờ chiếu"
+        android:layout_below="@id/spDiaDiem"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/design_default_color_primary"/>
+
+    <Spinner
+        android:id="@+id/spGioChieu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGioChieu"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView and Spinner for Loai Rap -->
+    <TextView
+        android:id="@+id/tvLoaiRap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn loại rạp"
+        android:layout_below="@id/spGioChieu"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/design_default_color_primary"/>
+
+    <Spinner
+        android:id="@+id/spLoaiRap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLoaiRap"
+        android:layout_marginTop="8dp" />
+
+    <!-- Button to Add Show -->
+    <Button
+        android:id="@+id/btnAddShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm Suất Chiếu"
+        android:layout_below="@id/spLoaiRap"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

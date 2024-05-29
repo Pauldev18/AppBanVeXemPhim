@@ -19,4 +19,14 @@ public class AdminGioChieu {
     public void setGio_chieu(String gio_chieu) {
         this.gio_chieu = gio_chieu;
     }
+
+    public AdminGioChieu(int id_gio_chieu, String gio_chieu) {
+        this.id_gio_chieu = id_gio_chieu;
+        this.gio_chieu = gio_chieu;
+    }
+
+    @Override
+    public String toString() {
+        return gio_chieu;
+    }
 }
