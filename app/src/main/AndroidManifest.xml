@@ -20,7 +20,7 @@
             android:resource="@xml/network_security_config" />
 
         <activity
-            android:name=".Activity.AdminDashboardActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +32,7 @@
         </activity>
 <!--        <activity android:name=".Activity.MainActivity" />-->
         <activity android:name=".Activity.DetailActivity" />
+        <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.PhimEditActivity" />
         <activity android:name=".Activity.BookingActivity" />
         <activity android:name=".Activity.ChonVeActivity" />
@@ -45,6 +46,12 @@
         <activity android:name=".Activity.AdminGioChieuActivity" />
         <activity android:name=".Activity.AdminLoaiRapActivity" />
         <activity android:name=".Activity.AdminThemSuatChieuActivity" />
+        <activity android:name=".Activity.ThemNgayChieuActivity" />
+        <activity android:name=".Activity.ThemDiaDiemActivity" />
+        <activity android:name=".Activity.ThemTinhActivity" />
+        <activity android:name=".Activity.ThemGioChieuActivity" />
+        <activity android:name=".Activity.ThemLoaiRapActivity" />
+        <activity android:name=".Activity.AdminDashboardActivity" />
 
     </application>
 

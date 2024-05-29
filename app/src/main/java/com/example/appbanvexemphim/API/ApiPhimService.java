@@ -20,6 +20,8 @@ import com.example.appbanvexemphim.Model.Url;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -138,5 +140,27 @@ public interface ApiPhimService {
     @POST("/newListSuatChieu")
     Call<Void> createSuatChieu(@Body NewSuatChieu newSuatChieu);
 
+    @POST("newNgayChieu")
+    Call<Void> createNgayChieu(
+            @Query("ngayChieu") Date ngayChieu
+    );
 
+    @POST("newDiaDiem")
+    Call<Void> createDiaDiem(
+            @Query("diaDiem") String diaDiem
+    );
+
+    @POST("newTinh")
+    Call<Void> createTinh(
+            @Query("Tinh") String tinh
+    );
+    @POST("newGioChieu")
+    Call<Void> createGioChieu(
+            @Query("gioChieu") Time gioChieu
+    );
+    @POST("newLoaiRap")
+    Call<Void> createLoaiRap(
+            @Query("loaiRap") String loaiRap,
+            @Query("price") Float price
+    );
 }

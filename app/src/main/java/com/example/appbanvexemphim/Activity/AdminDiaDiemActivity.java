@@ -1,7 +1,10 @@
 package com.example.appbanvexemphim.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -25,12 +28,21 @@ import retrofit2.Response;
 public class AdminDiaDiemActivity extends AppCompatActivity {
     private RecyclerView rcDiaDiem;
     private AdminDiaDiemAdapter adminDiaDiemAdapter;
+    private Button btnAddDiaDiem;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managent_diadiem);
         rcDiaDiem = findViewById(R.id.rcDiaDiem);
         rcDiaDiem.setLayoutManager(new LinearLayoutManager(this));
+        btnAddDiaDiem = findViewById(R.id.btnAddDiaDiem);
+        btnAddDiaDiem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminDiaDiemActivity.this, ThemDiaDiemActivity.class);
+                startActivity(intent);
+            }
+        });
         ApiPhimService.phimService.getAllDiaDiem().enqueue(new Callback<List<AdminDiaDiem>>() {
             @Override
             public void onResponse(Call<List<AdminDiaDiem>> call, Response<List<AdminDiaDiem>> response) {

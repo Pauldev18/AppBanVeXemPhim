@@ -1,7 +1,10 @@
 package com.example.appbanvexemphim.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -25,12 +28,21 @@ import retrofit2.Response;
 public class AdminLoaiRapActivity extends AppCompatActivity {
     private RecyclerView rcLoaiRap;
     private AdminLoaiRapAdapter adminLoaiRapAdapter;
+    private Button btnAddLoaiRap;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managent_loairap);
         rcLoaiRap = findViewById(R.id.rcLoaiRap);
         rcLoaiRap.setLayoutManager(new LinearLayoutManager(this));
+        btnAddLoaiRap = findViewById(R.id.btnAddLoaiRap);
+        btnAddLoaiRap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(AdminLoaiRapActivity.this, ThemLoaiRapActivity.class);
+                startActivity(intent);
+            }
+        });
         ApiPhimService.phimService.getAllLoaiRap().enqueue(new Callback<List<AdminLoaiRap>>() {
             @Override
             public void onResponse(Call<List<AdminLoaiRap>> call, Response<List<AdminLoaiRap>> response) {
