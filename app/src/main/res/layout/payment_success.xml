@@ -46,14 +46,6 @@
         android:layout_marginBottom="4dp"
         android:textColor="#555" />
 
-    <TextView
-        android:id="@+id/amount_paid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Số tiền thanh toán: 11.111 VND"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"
-        android:textColor="#555" />
 
     <TextView
         android:id="@+id/bank_name"
@@ -66,10 +58,10 @@
 
     <!-- Nút quay lại trang chủ hoặc tiếp tục mua sắm -->
     <Button
-
+        android:id="@+id/btnSuccess"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:text="Xem danh sách vé"
         android:textColor="#fff"
         android:background="#4CAF50"
         android:layout_marginTop="24dp" />

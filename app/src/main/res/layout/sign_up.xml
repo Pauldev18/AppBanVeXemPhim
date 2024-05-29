@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Username"
+        android:hint="Họ và tên"
         android:inputType="text" />
 
     <!-- Phone Number -->
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="16dp"
-        android:hint="Phone Number"
+        android:hint="Số điện thoại"
         android:inputType="phone" />
 
     <!-- Gender -->
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/radioGroupGender"
         android:layout_marginTop="16dp"
-        android:hint="Date of Birth"
+        android:hint="Ngày sinh (yyyy-MM-dd)"
         android:inputType="date" />
 
     <!-- Account -->
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextDateOfBirth"
         android:layout_marginTop="16dp"
-        android:hint="Account"
+        android:hint="Tài khoản"
         android:inputType="text" />
 
     <!-- Password -->
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextAccount"
         android:layout_marginTop="16dp"
-        android:hint="Password"
+        android:hint="Mật khẩu"
         android:inputType="textPassword" />
 
     <!-- Email -->
@@ -92,6 +92,6 @@
         android:layout_below="@id/editTextEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Register" />
+        android:text="Đăng ký" />
 
 </RelativeLayout>

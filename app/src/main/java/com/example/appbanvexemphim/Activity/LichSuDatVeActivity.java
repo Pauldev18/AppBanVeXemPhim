@@ -30,6 +30,7 @@ public class LichSuDatVeActivity extends AppCompatActivity {
     private RecyclerView rcLS;
     private VePhimAdapter vePhimAdapter;
     private Button btnLogout;
+    private Button btnHome;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,14 @@ public class LichSuDatVeActivity extends AppCompatActivity {
         rcLS = findViewById(R.id.recycler_view_tickets);
         rcLS.setLayoutManager(new LinearLayoutManager(this));
         btnLogout = findViewById(R.id.button_logout);
+        btnHome = findViewById(R.id.btnHome);
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LichSuDatVeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         ApiPhimService.phimService.getLichSuDatVe(ChooseSeat.getInstance().getUserID()).enqueue(new Callback<List<LichSuDatVe>>() {
             @Override
             public void onResponse(Call<List<LichSuDatVe>> call, Response<List<LichSuDatVe>> response) {

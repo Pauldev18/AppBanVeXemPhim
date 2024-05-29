@@ -1,6 +1,7 @@
 // src/main/java/com/example/appbanvexemphim/Activity/ThemPhimActivity.java
 package com.example.appbanvexemphim.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -40,11 +41,16 @@ public class ThemPhimActivity extends AppCompatActivity {
     private Button btnChonAnh, btnThemPhim;
     private ImageView imageViewPreview;
     private Uri imageUri;
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_phim);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Đang thêm...");
+        progressDialog.setCancelable(false);
 
         etTenPhim = findViewById(R.id.etTenPhim);
         etTheLoai = findViewById(R.id.etTheLoai);
@@ -108,27 +114,20 @@ public class ThemPhimActivity extends AppCompatActivity {
         }
     }
     private void uploadFilmToServer(String tenPhim, Uri imageUri, String theLoai, String thoiLuong, String khoiChieu, String daoDien, String dienVien, String ngonNgu, String danhGia, String noiDung) {
-        // Check if the imageUri is valid
+
         if (imageUri != null) {
-            // Convert Uri to real file path
             String realPath;
-
                 realPath = RealPathUtil.getRealPathFromURI_API19(this, imageUri);
-
-
             if (realPath != null && !realPath.isEmpty()) {
                 File file = new File(realPath);
-
-                // Create RequestBody instance from file
                 RequestBody requestFile = RequestBody.create(MediaType.parse(getContentResolver().getType(imageUri)), file);
-                // Create MultipartBody.Part instance from the file
                 MultipartBody.Part imagePart = MultipartBody.Part.createFormData("anhPhim", file.getName(), requestFile);
-
-                // Call API Service
+                progressDialog.show();
                 ApiPhimService.phimService.upFilm(tenPhim, imagePart, theLoai, thoiLuong, khoiChieu, daoDien, dienVien, ngonNgu, danhGia, noiDung)
                         .enqueue(new Callback<Object>() {
                             @Override
                             public void onResponse(Call<Object> call, Response<Object> response) {
+                                progressDialog.dismiss();
                                 if (response.isSuccessful() && response.body() != null) {
                                     Intent intent = new Intent(ThemPhimActivity.this, ManagentPhimActivity.class);
                                     startActivity(intent);
@@ -139,14 +138,17 @@ public class ThemPhimActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<Object> call, Throwable t) {
+                                progressDialog.dismiss();
                                 Toast.makeText(ThemPhimActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                                 Log.e("MainActivity", "onFailure: ", t);
                             }
                         });
             } else {
+                progressDialog.dismiss();
                 Toast.makeText(ThemPhimActivity.this, "Invalid file path", Toast.LENGTH_SHORT).show();
             }
         } else {
+            progressDialog.dismiss();
             Toast.makeText(ThemPhimActivity.this, "Image URI is null", Toast.LENGTH_SHORT).show();
         }
     }

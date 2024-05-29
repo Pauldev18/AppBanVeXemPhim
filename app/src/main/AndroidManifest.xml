@@ -58,6 +58,17 @@
         <activity android:name=".Activity.ForgotPassActivity" />
         <activity android:name=".Activity.AcceptOTPActivity" />
         <activity android:name=".Activity.NewPassActivity" />
+        <activity
+            android:name=".Activity.SuccessActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="appdatvexemphim" android:host="success" />
+            </intent-filter>
+        </activity>
+
 
     </application>
 
