@@ -29,6 +29,7 @@ public class AdminDiaDiemActivity extends AppCompatActivity {
     private RecyclerView rcDiaDiem;
     private AdminDiaDiemAdapter adminDiaDiemAdapter;
     private Button btnAddDiaDiem;
+    private Button btnBack;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,14 @@ public class AdminDiaDiemActivity extends AppCompatActivity {
         rcDiaDiem = findViewById(R.id.rcDiaDiem);
         rcDiaDiem.setLayoutManager(new LinearLayoutManager(this));
         btnAddDiaDiem = findViewById(R.id.btnAddDiaDiem);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminDiaDiemActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
         btnAddDiaDiem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

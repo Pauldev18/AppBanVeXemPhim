@@ -4,13 +4,25 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- Nút Back -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/design_default_color_primary"/>
+
     <!-- TextView and Spinner for Movies -->
     <TextView
         android:id="@+id/tvMovies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chọn phim"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/btnBack"
+        android:layout_marginTop="16dp"
         android:textColor="@color/design_default_color_primary"/>
 
     <Spinner

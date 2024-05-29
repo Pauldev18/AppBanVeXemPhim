@@ -28,6 +28,7 @@ public class ManagentPhimActivity extends AppCompatActivity {
     private RecyclerView recyclerViewPhim;
     private AdminPhimAdapter phimAdapter;
     private Button btnThem;
+    private Button btnBack;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,14 @@ public class ManagentPhimActivity extends AppCompatActivity {
         recyclerViewPhim = findViewById(R.id.rvMovies);
         recyclerViewPhim.setLayoutManager(new LinearLayoutManager(this));
         btnThem = findViewById(R.id.btnAddMovie);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagentPhimActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

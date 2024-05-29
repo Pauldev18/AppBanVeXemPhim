@@ -8,7 +8,13 @@
     <!-- Nút Thêm Phim -->
 
     <!-- Danh sách phim -->
-
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="16dp"
+        android:text="Back" />
     <Button
         android:id="@+id/btnAddtinh"
         android:layout_width="wrap_content"

@@ -86,7 +86,17 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
     public void onBindViewHolder(@NonNull PhimViewHolder holder, int position) {
         Phim phim = listPhim.get(position);
         holder.txtTenPhim.setText(phim.getTenPhim());
-        Glide.with(context).load(phim.getAnhPhim()).into(holder.imgPhim);
+        String imageUrl = phim.getAnhPhim();
+// Chuyển đổi URL từ HTTP sang HTTPS
+        if (imageUrl.startsWith("http://")) {
+            imageUrl = imageUrl.replace("http://", "https://");
+        }
+
+// Sử dụng Glide để tải ảnh từ URL đã được chuyển đổi
+        Glide.with(context)
+                .load(imageUrl)
+                .into(holder.imgPhim);
+
         holder.theLoai.setText(phim.getTheLoai());
         // Khai báo sự kiện click
         holder.layOut.setOnClickListener(new View.OnClickListener() {

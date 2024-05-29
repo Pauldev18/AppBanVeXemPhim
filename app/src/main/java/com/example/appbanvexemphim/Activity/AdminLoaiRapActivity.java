@@ -29,6 +29,7 @@ public class AdminLoaiRapActivity extends AppCompatActivity {
     private RecyclerView rcLoaiRap;
     private AdminLoaiRapAdapter adminLoaiRapAdapter;
     private Button btnAddLoaiRap;
+    private Button btnBack;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,14 @@ public class AdminLoaiRapActivity extends AppCompatActivity {
         rcLoaiRap = findViewById(R.id.rcLoaiRap);
         rcLoaiRap.setLayoutManager(new LinearLayoutManager(this));
         btnAddLoaiRap = findViewById(R.id.btnAddLoaiRap);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminLoaiRapActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
         btnAddLoaiRap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.appbanvexemphim.R;
+import com.example.appbanvexemphim.Singleton.ChooseSeat;
 import com.google.android.material.navigation.NavigationView;
 
 public class AdminDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,6 +77,17 @@ public class AdminDashboardActivity extends AppCompatActivity implements Navigat
             // Handle navigation to Manage Movies
             Intent intent = new Intent(this, AdminThemSuatChieuActivity.class);
             startActivity(intent);
+        }
+        else if (id == R.id.nav_logout) {
+            // Handle navigation to Manage Movies
+            Intent intent = new Intent(AdminDashboardActivity.this, LoginActivity.class);
+
+            // Xóa tất cả các hoạt động trước đó khỏi ngăn xếp hoạt động
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            ChooseSeat.getInstance().setUserID(-1);
+
+            startActivity(intent);
+            finishAffinity();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

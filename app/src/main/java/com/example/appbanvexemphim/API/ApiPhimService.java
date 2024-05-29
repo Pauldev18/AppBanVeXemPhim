@@ -44,7 +44,7 @@ public interface ApiPhimService {
             .setLenient()
             .create();
     ApiPhimService phimService = new Retrofit.Builder()
-            .baseUrl("http://192.168.80.1:8080/")
+            .baseUrl("http://172.16.1.89:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiPhimService.class);
@@ -162,5 +162,15 @@ public interface ApiPhimService {
     Call<Void> createLoaiRap(
             @Query("loaiRap") String loaiRap,
             @Query("price") Float price
+    );
+    @POST("createAcoount")
+    Call<Void> createAccount(
+            @Query("tenUser") String tenUser,
+            @Query("sdt") String sdt,
+            @Query("gioiTinh") int gioiTinh,
+            @Query("ngaySinh") Date ngaySinh,
+            @Query("taiKhoan") String taiKhoan,
+            @Query("matKhau") String matKhau,
+            @Query("gmail") String gmail
     );
 }

@@ -29,6 +29,7 @@ public class AdminNgayChieuActivity extends AppCompatActivity {
     private RecyclerView rcNgayChieu;
     private AdminNgayChieuAdapter adminNgayChieuAdapter;
     private Button btnAddNgayChieu;
+    private Button btnBack;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,14 @@ public class AdminNgayChieuActivity extends AppCompatActivity {
         rcNgayChieu = findViewById(R.id.rcNgayChieu);
         rcNgayChieu.setLayoutManager(new LinearLayoutManager(this));
         btnAddNgayChieu = findViewById(R.id.btnAddNgayChieu);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminNgayChieuActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         ApiPhimService.phimService.getAllNgayChieu().enqueue(new Callback<List<AdminNgayChieu>>() {

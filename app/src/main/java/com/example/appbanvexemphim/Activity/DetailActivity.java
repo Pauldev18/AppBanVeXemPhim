@@ -37,10 +37,15 @@ public class DetailActivity extends AppCompatActivity {
         Button btnDatVe = findViewById(R.id.btn_buy_ticket);
 
         tenPhim.setText(detailPhim.getTenPhim());
+        String imageUrl = detailPhim.getAnhPhim();
+// Chuyển đổi URL từ HTTP sang HTTPS
+        if (imageUrl.startsWith("http://")) {
+            imageUrl = imageUrl.replace("http://", "https://");
+        }
+
+// Sử dụng Glide để tải ảnh từ URL đã được chuyển đổi
         Glide.with(this)
-                .load(detailPhim.getAnhPhim())
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
+                .load(imageUrl)
                 .into(imageView);
         moTa.setText("Mô tả: " + detailPhim.getNoiDung());
         theLoai.setText("Thể loại: " + detailPhim.getTheLoai());

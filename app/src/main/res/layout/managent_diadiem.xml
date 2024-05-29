@@ -5,10 +5,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Nút Thêm Phim -->
+    <!-- Nút Back -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="16dp"
+        android:text="Back" />
 
-    <!-- Danh sách phim -->
-
+    <!-- Nút Thêm Địa Điểm -->
     <Button
         android:id="@+id/btnAddDiaDiem"
         android:layout_width="wrap_content"
@@ -17,6 +23,7 @@
         android:layout_marginBottom="16dp"
         android:text="Thêm Địa Điểm" />
 
+    <!-- Danh sách địa điểm -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcDiaDiem"
         android:layout_width="match_parent"

@@ -42,9 +42,17 @@ public class AdminPhimAdapter extends RecyclerView.Adapter<AdminPhimAdapter.Admi
         Phim phim = phimList.get(position);
         holder.theLoai.setText(phim.getTheLoai());
         holder.tenPhim.setText(phim.getTenPhim());
+        String imageUrl = phim.getAnhPhim();
+// Chuyển đổi URL từ HTTP sang HTTPS
+        if (imageUrl.startsWith("http://")) {
+            imageUrl = imageUrl.replace("http://", "https://");
+        }
+
+// Sử dụng Glide để tải ảnh từ URL đã được chuyển đổi
         Glide.with(context)
-                .load(phim.getAnhPhim())
+                .load(imageUrl)
                 .into(holder.image);
+
 
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override

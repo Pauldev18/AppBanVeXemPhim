@@ -29,6 +29,8 @@ public class AdminGioChieuActivity extends AppCompatActivity {
     private RecyclerView rcGioChieu;
     private AdminGioChieuAdapter adminGioChieuAdapter;
     private Button btnAddGioChieu;
+    private Button btnBack;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,14 @@ public class AdminGioChieuActivity extends AppCompatActivity {
         rcGioChieu = findViewById(R.id.rcGioChieu);
         rcGioChieu.setLayoutManager(new LinearLayoutManager(this));
         btnAddGioChieu = findViewById(R.id.btnAddGioChieu);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminGioChieuActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
         btnAddGioChieu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

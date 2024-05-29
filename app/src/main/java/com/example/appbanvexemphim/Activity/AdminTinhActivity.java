@@ -29,6 +29,7 @@ public class AdminTinhActivity extends AppCompatActivity {
     private RecyclerView rcTinh;
     private AdminTinhAdapter adminTinhAdapter;
     private Button btnAddtinh;
+    private Button btnBack;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,14 @@ public class AdminTinhActivity extends AppCompatActivity {
         rcTinh = findViewById(R.id.rcTinh);
         rcTinh.setLayoutManager(new LinearLayoutManager(this));
         btnAddtinh = findViewById(R.id.btnAddtinh);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminTinhActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
         btnAddtinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

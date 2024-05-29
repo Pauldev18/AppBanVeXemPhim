@@ -1,5 +1,6 @@
 package com.example.appbanvexemphim.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,6 +53,7 @@ public class AdminThemSuatChieuActivity extends AppCompatActivity {
     private int idDiaDiem;
     private int idGioChieu;
     private int idLoaiRap;
+    private Button btnBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +66,14 @@ public class AdminThemSuatChieuActivity extends AppCompatActivity {
         spGioChieu = findViewById(R.id.spGioChieu);
         spLoaiRap = findViewById(R.id.spLoaiRap);
         btnAddShow = findViewById(R.id.btnAddShow);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminThemSuatChieuActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
         LoadCbxNgayChieu();
         LoadCbxTinh();
         LoadCbxDiaDiem();

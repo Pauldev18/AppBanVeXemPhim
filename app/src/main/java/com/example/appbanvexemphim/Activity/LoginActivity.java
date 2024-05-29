@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView username;
     private TextView password;
     private Button btnLogin;
+    private TextView signUp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,14 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.txtUserName);
         password = findViewById(R.id.txtPassword);
         btnLogin = findViewById(R.id.buttonLogin);
+        signUp = findViewById(R.id.textViewSignUp);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
