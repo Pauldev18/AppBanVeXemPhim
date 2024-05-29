@@ -114,6 +114,7 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/txtNguoiDat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""/>
@@ -125,6 +126,7 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/txtSDT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""/>
@@ -136,6 +138,7 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""/>

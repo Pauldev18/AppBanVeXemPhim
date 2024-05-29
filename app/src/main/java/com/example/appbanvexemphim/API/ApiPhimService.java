@@ -14,6 +14,7 @@ import com.example.appbanvexemphim.Model.LoginRequest;
 import com.example.appbanvexemphim.Model.NewSuatChieu;
 import com.example.appbanvexemphim.Model.NgayChieu;
 import com.example.appbanvexemphim.Model.Phim;
+import com.example.appbanvexemphim.Model.Profile;
 import com.example.appbanvexemphim.Model.Rap;
 import com.example.appbanvexemphim.Model.Tinh;
 import com.example.appbanvexemphim.Model.Url;
@@ -138,7 +139,7 @@ public interface ApiPhimService {
     @GET("getAllLoaiRap")
     Call<List<AdminLoaiRap>> getAllLoaiRap();
 
-    @POST("/newListSuatChieu")
+    @POST("newListSuatChieu")
     Call<Void> createSuatChieu(@Body NewSuatChieu newSuatChieu);
 
     @POST("newNgayChieu")
@@ -186,4 +187,6 @@ public interface ApiPhimService {
             @Query("gmail") String email,
             @Query("newPass") String newPass
     );
+    @GET("profile/{IDUser}")
+    Call<Profile> getProfile(@Path("IDUser") int IDUser);
 }

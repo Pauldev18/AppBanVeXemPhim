@@ -13,10 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appbanvexemphim.API.ApiPhimService;
+import com.example.appbanvexemphim.Adapter.VePhimAdapter;
+import com.example.appbanvexemphim.Model.LichSuDatVe;
+import com.example.appbanvexemphim.Model.Profile;
 import com.example.appbanvexemphim.Model.Url;
 import com.example.appbanvexemphim.R;
 import com.example.appbanvexemphim.Singleton.ChooseSeat;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,6 +38,9 @@ public class ConfirmActivity extends AppCompatActivity {
     private TextView txtTongTien;
     private int IDDatCho;
     private Button btnPayment;
+    private TextView txtNguoiDat;
+    private TextView txtSDT;
+    private TextView txtEmail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +54,9 @@ public class ConfirmActivity extends AppCompatActivity {
         txtPrice = findViewById(R.id.txtGiaVe);
         txtTongTien = findViewById(R.id.txtTongTien);
         btnPayment = findViewById(R.id.btnPayment);
+        txtNguoiDat = findViewById(R.id.txtNguoiDat);
+        txtSDT = findViewById(R.id.txtSDT);
+        txtEmail = findViewById(R.id.txtEmail);
 
         IDDatCho = getIntent().getIntExtra("IDDatCho", -1);
 
@@ -57,6 +67,24 @@ public class ConfirmActivity extends AppCompatActivity {
         txtGhe.setText(ChooseSeat.getInstance().getTenGhe());
         txtPrice.setText(String.valueOf(ChooseSeat.getInstance().getPrice()));
         txtTongTien.setText(String.valueOf(ChooseSeat.getInstance().getPrice()));
+        ApiPhimService.phimService.getProfile(ChooseSeat.getInstance().getUserID()).enqueue(new Callback<Profile>() {
+            @Override
+            public void onResponse(Call<Profile> call, Response<Profile> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Profile nc = response.body();
+                    txtEmail.setText(nc.getEmail());
+                    txtNguoiDat.setText(nc.getName());
+                    txtSDT.setText(nc.getSdt());
+                } else {
+                    Toast.makeText(ConfirmActivity.this, "Failed to get data", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<Profile> call, Throwable t) {
+                Toast.makeText(ConfirmActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("MainActivity", "onFailure: ", t);
+            }
+        });
 
         btnPayment.setOnClickListener(new View.OnClickListener() {
             @Override

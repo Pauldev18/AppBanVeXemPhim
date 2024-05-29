@@ -43,45 +43,16 @@ public class AdminPhimAdapter extends RecyclerView.Adapter<AdminPhimAdapter.Admi
         holder.theLoai.setText(phim.getTheLoai());
         holder.tenPhim.setText(phim.getTenPhim());
         String imageUrl = phim.getAnhPhim();
-// Chuyển đổi URL từ HTTP sang HTTPS
+        // Chuyển đổi URL từ HTTP sang HTTPS
         if (imageUrl.startsWith("http://")) {
             imageUrl = imageUrl.replace("http://", "https://");
         }
 
-// Sử dụng Glide để tải ảnh từ URL đã được chuyển đổi
+        // Sử dụng Glide để tải ảnh từ URL đã được chuyển đổi
         Glide.with(context)
                 .load(imageUrl)
                 .into(holder.image);
-
-
-        holder.btnXoa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int clickedPosition = holder.getAdapterPosition();
-                if (clickedPosition != RecyclerView.NO_POSITION) {
-                    // Retrieve the Phim object associated with the clicked position
-                    Phim clickedPhim = phimList.get(clickedPosition);
-                    // Hiển thị hộp thoại xác nhận
-                    new AlertDialog.Builder(context)
-                            .setTitle("Xác nhận xóa")
-                            .setMessage("Bạn có chắc chắn muốn xóa phim này không?")
-                            .setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Hiển thị ID của phim
-                                    Toast.makeText(context, "ID của phim: " + clickedPhim.getId(), Toast.LENGTH_SHORT).show();
-                                    // Thực hiện xóa phim khỏi danh sách (nếu cần)
-                                    phimList.remove(clickedPosition);
-                                    notifyItemRemoved(clickedPosition);
-                                }
-                            })
-                            .setNegativeButton("Không", null)
-                            .show();
-                }
-            }
-        });
-
-    }
+        }
 
     @Override
     public int getItemCount() {
@@ -95,13 +66,13 @@ public class AdminPhimAdapter extends RecyclerView.Adapter<AdminPhimAdapter.Admi
         private ImageView image;
         private TextView tenPhim;
         private TextView theLoai;
-        private Button btnXoa;
+
         public AdminPhimViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.imgMovie);
             tenPhim = itemView.findViewById(R.id.tvMovieTitle);
             theLoai = itemView.findViewById(R.id.tvMovieGenre);
-            btnXoa = itemView.findViewById(R.id.btnDeleteMovie);
+
         }
     }
 }

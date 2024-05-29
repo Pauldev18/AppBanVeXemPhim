@@ -13,6 +13,11 @@ public class ChooseSeat {
     private String tenGhe;
     private String phongChieu;
     private int userID;
+    private String movieGenre;
+    private String movieDirector;
+    private String movieCast;
+    private String cinemaName;
+    private String cinemaLocation;
 
     private ChooseSeat() { }  // Private constructor to prevent direct instantiation
 
@@ -21,6 +26,47 @@ public class ChooseSeat {
             instance = new ChooseSeat();  // Create instance if not already created
         }
         return instance;
+    }
+
+
+    public String getMovieGenre() {
+        return movieGenre;
+    }
+
+    public void setMovieGenre(String movieGenre) {
+        this.movieGenre = movieGenre;
+    }
+
+    public String getMovieDirector() {
+        return movieDirector;
+    }
+
+    public void setMovieDirector(String movieDirector) {
+        this.movieDirector = movieDirector;
+    }
+
+    public String getMovieCast() {
+        return movieCast;
+    }
+
+    public void setMovieCast(String movieCast) {
+        this.movieCast = movieCast;
+    }
+
+    public String getCinemaName() {
+        return cinemaName;
+    }
+
+    public void setCinemaName(String cinemaName) {
+        this.cinemaName = cinemaName;
+    }
+
+    public String getCinemaLocation() {
+        return cinemaLocation;
+    }
+
+    public void setCinemaLocation(String cinemaLocation) {
+        this.cinemaLocation = cinemaLocation;
     }
 
     public void setSelectedSeat(int selectedSeat) {

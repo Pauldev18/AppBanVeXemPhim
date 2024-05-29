@@ -42,6 +42,12 @@ public class ChonVeActivity extends AppCompatActivity {
     private int DiaDiemID;
     private int GioChieuID;
     private TextView price;
+    private TextView movieTitle;
+    private TextView movieGenre;
+    private TextView movieDirector;
+    private TextView movieCast;
+    private TextView cinemaName;
+    private TextView cinemaLocation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,8 +56,20 @@ public class ChonVeActivity extends AppCompatActivity {
         btnDatVe = findViewById(R.id.book_button);
         rv_choNgoi = findViewById(R.id.seat_grid);
         price = findViewById(R.id.textView2);
+        movieTitle = findViewById(R.id.movie_title);
+        movieGenre = findViewById(R.id.movie_genre);
+        movieDirector = findViewById(R.id.movie_director);
+        movieCast = findViewById(R.id.movie_cast);
+        cinemaName = findViewById(R.id.cinema_name);
+        cinemaLocation = findViewById(R.id.cinema_location);
         rv_choNgoi.setLayoutManager(new GridLayoutManager(this, 10));
 
+        movieTitle.setText("Tên phim: " + ChooseSeat.getInstance().getTenPhim());
+        movieGenre.setText("Thể loại: " + ChooseSeat.getInstance().getMovieGenre());
+        movieDirector.setText("Đạo diễn: " + ChooseSeat.getInstance().getMovieDirector());
+        movieCast.setText("Diễn viên: " + ChooseSeat.getInstance().getMovieCast());
+        cinemaName.setText("Loại rạp: " + ChooseSeat.getInstance().getTenRap());
+        cinemaLocation.setText("Địa điểm: " + ChooseSeat.getInstance().getPhongChieu());
         // Retrieve the data from the Intent
         if (getIntent().hasExtra("listChoNgoi")) {
              movieID = getIntent().getIntExtra("movieID", -1);  // Handle potential missing value

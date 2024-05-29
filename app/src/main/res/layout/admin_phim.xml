@@ -45,12 +45,5 @@
     </LinearLayout>
 
     <!-- Nút Xóa -->
-    <Button
-        android:id="@+id/btnDeleteMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Xóa"
-        android:textColor="#FF0000"
-        android:background="?attr/selectableItemBackground" />
 
 </LinearLayout>

@@ -104,6 +104,9 @@ public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.PhimViewHolder
             public void onClick(View v) {
                 onClickGotoDetail(phim);
                 ChooseSeat.getInstance().setTenPhim(phim.getTenPhim());
+                ChooseSeat.getInstance().setMovieGenre(phim.getTheLoai());
+                ChooseSeat.getInstance().setMovieCast(phim.getDienVien());
+                ChooseSeat.getInstance().setMovieDirector(phim.getDaoDien());
             }
         });
 

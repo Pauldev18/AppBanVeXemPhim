@@ -14,14 +14,74 @@
         android:textSize="24sp"
         android:layout_marginTop="16dp"/>
 
+    <!-- Thông tin phim -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/seat_grid"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="227dp"
         android:layout_below="@id/screen_text"
-        android:layout_marginTop="149dp"
+        android:layout_marginTop="122dp"
         android:columnCount="10" />
 
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seat_grid"
+        android:layout_marginStart="16dp"
+        android:text="Tên phim: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/movie_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_title"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Thể loại: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/movie_director"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_genre"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Đạo diễn: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/movie_cast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_director"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Diễn viên: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/cinema_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_cast"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Tên rạp: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/cinema_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cinema_name"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Địa điểm: "
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -55,6 +115,5 @@
         android:layout_marginBottom="28dp"
         android:text="Tổng tiền: "
         android:textSize="24sp" />
-
 
 </RelativeLayout>

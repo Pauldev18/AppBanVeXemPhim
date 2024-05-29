@@ -63,7 +63,6 @@ public class ThemPhimActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Xử lý chọn ảnh
-
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, PICK_IMAGE_REQUEST);
             }

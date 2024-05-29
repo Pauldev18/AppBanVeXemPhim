@@ -110,15 +110,6 @@
             android:textColor="#ffffff"
             android:textSize="14sp" />
 
-        <!-- Duration -->
-        <TextView
-            android:id="@+id/txt_duration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Thời lượng: 114 phút"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
 
         <!-- Language -->
         <TextView

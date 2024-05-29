@@ -40,7 +40,7 @@ public class AdminThemSuatChieuActivity extends AppCompatActivity {
     private List<AdminDiaDiem> diaDiemList;
     private List<AdminGioChieu> gioChieuList;
     private List<AdminLoaiRap> loaiRapList;
-    private  Spinner spNgayChieu;
+    private Spinner spNgayChieu;
     private Spinner spTinh;
     private Spinner spDiaDiem;
     private Spinner spGioChieu;
