@@ -35,6 +35,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -44,7 +45,7 @@ public interface ApiPhimService {
             .setLenient()
             .create();
     ApiPhimService phimService = new Retrofit.Builder()
-            .baseUrl("http://172.16.1.89:8080/")
+            .baseUrl("http://192.168.2.13:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiPhimService.class);
@@ -172,5 +173,17 @@ public interface ApiPhimService {
             @Query("taiKhoan") String taiKhoan,
             @Query("matKhau") String matKhau,
             @Query("gmail") String gmail
+    );
+    @GET("generateOtp")
+    Call<String> generateOtp(@Query("email") String email);
+    @GET("validateOtp")
+    Call<String> validateOtp(
+            @Query("email") String email,
+            @Query("otpnum") int otpNum
+    );
+    @PUT("forgotPassword")
+    Call<String> newPass(
+            @Query("gmail") String email,
+            @Query("newPass") String newPass
     );
 }

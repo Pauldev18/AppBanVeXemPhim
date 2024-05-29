@@ -55,6 +55,9 @@
         <activity android:name=".Activity.ThemLoaiRapActivity" />
         <activity android:name=".Activity.AdminDashboardActivity" />
         <activity android:name=".Activity.SignUpActivity" />
+        <activity android:name=".Activity.ForgotPassActivity" />
+        <activity android:name=".Activity.AcceptOTPActivity" />
+        <activity android:name=".Activity.NewPassActivity" />
 
     </application>
 
